@@ -1,4 +1,4 @@
-name: Build and Deploy Static Site
+name: Build and Test Static Site
 
 on:
   push:
@@ -19,5 +19,9 @@ jobs:
       - name: Build Docker Image
         run: docker build -t my-static-site .
 
-      - name: Run Docker Compose
-        run: docker-compose up -d
+      # Optional: Run the container to check if it starts properly
+      - name: Run Container (for testing)
+        run: |
+          docker run -d -p 8080:80 --name test-site my-static-site
+          sleep 5
+          docker ps
