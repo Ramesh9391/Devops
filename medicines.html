@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda Wellness - Medicines</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS-xHPpEtDFdiSsIV1AHwaUjgoQQVZNKpF_VDXgcpZwGWnOG5CDaoZQfiJh2WodZnV5SA&usqp=CAU');
+            background-size: cover;
+            background-position: center;
+        }
+        img{
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <section class="container mt-5">
+        <h2>Ayurvedic Medicines</h2>
+        <p>Explore natural remedies for a healthier lifestyle.</p>
+        <div class="row">
+            <!-- Medicine 1: Ashwagandha -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="https://www.flipkart.com/ayurvedic-life-organic-ashwagandha-powder/p/itm30c8dbe90ffc5?pid=AYDFY8GHDXEGXD8N&lid=LSTAYDFY8GHDXEGXD8NWZ8WU8&marketplace=FLIPKART&store=hlc&srno=b_1_2&otracker=browse&fm=organic&iid=en_4QIYdqbMhHp2w-ri_JMFnoev9cZ8CN8Bv_7JwvsANWpz4p3PxfOHz8rDoRqj9qhfRKa38nX7xecfx-U95h2l1g%3D%3D&ppt=sp&ppn=productListView&ssid=jhy4657f400000001730996408840" target="_blank">
+                        <img src="https://www.pravek.com/cdn/shop/articles/Ashwagandha-Capsule_c2f456a2-2429-4ba3-bc24-b33b61d1af6f.jpg?v=1718608912&width=1100" class="card-img-top" alt="Ashwagandha">
+                    </a>
+                    <div class="card-body">
+                        <h5>Ashwagandha</h5>
+                        <p>Supports immunity and overall vitality.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medicine 2: Ashwagandha (for illustration) -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="https://hyugalife.com/product/globus-naturals-ayurvedic-giloy-immunity-booster-capsule-60-cap?srsltid=AfmBOoqaEwD7V4oVRnFDptNQKPxJ9jZ8QD_Ur-HPQ11aqPMmLuAC_AYjoso" target="_blank">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJlfz-d0Zmg61PGLg4yL7ZIoiiGJhgqjdUKw&s" class="card-img-top" alt="Giloy">
+                    </a>
+                    <div class="card-body">
+                        <h5>Giloy</h5>
+                        <p>Helps in treating arthritis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medicine 3: Ashwagandha (for illustration) -->
+            <div class="col-md-4">
+                <div class="card">
+                    <a href="https://www.thehimalayanorganics.in/products/organic-spirulina-veg-capsules-2000mg-per-serving-certified-organic-120-veg-capsules?variant=35961965183135&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=1&gclid=Cj0KCQiA0MG5BhD1ARIsAEcZtwQVrm7Y5NRsZtAgbTBYV6Hff7s5_Ffo4WAZ67fOjcwONS_Jt1PGamwaAjY5EALw_wcB" target="_blank">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUCfyQ05jJsZgebV11QRXykRY6xJO_WmZChYjkeXYuVco3U1-CzSphR1cUAH03jL7IiMM&usqp=CAU" class="card-img-top" alt="Spirulina">
+                    </a>
+                    <div class="card-body">
+                        <h5>Spirulina</h5>
+                        <p>Protects cells from damage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch('navbar.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+          })
+          .catch(error => console.error('Error loading navbar:', error));
+      </script>
+      
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda Wellness - Body Type Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: grid;
+            background-image: url('https://media.istockphoto.com/id/173877738/photo/herbal-treatment.jpg?s=612x612&w=0&k=20&c=eu2OSQLQhhocN02tslGZVIKjJr-nhKj-dzDqPBPylPs=');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            align-items: center;
+            
+        }
+        .quiz-container {
+            background-image: url('https://www.chakrapaniayurveda.com/wp-content/uploads/2022/02/bg1-620x500.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            margin-left: 180px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .question {
+            margin: 20px 0;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: auto;
+            align-items: center;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        /* .info-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .info-buttons button {
+            width: auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .info-buttons button:hover {
+            background-color: #0056b3;
+        } */
+        .more-info {
+            color:black;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            margin-left: 210px;
+            margin-right: 225px;
+            font-weight: bold;
+            background-color: white;
+            border-radius: 20px;
+            padding-top: 6px;
+            padding-bottom: 8px;
+            text-align: center;
+
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        h2{
+            text-align: center;
+        }
+        .text{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <section class="container mt-5">
+        <h2>Find Your Body Type</h2>
+        <p class="text">Take this quiz to discover your Ayurvedic body type.</p>
+        
+        <div class="row">
+            <div class="col-md-8 quiz-container">
+                <h1>Ayurveda Body Type Quiz</h1>
+                <p>Please select the answer that best describes you for each question.</p>
+                <form id="quizForm">
+                    <!-- 1st to 5th questions -->
+                    <div class="question">
+                        <p>1. How would you describe your body frame?</p>
+                        <label><input type="radio" name="q1" value="vata"> Thin and delicate (Vata)</label>
+                        <label><input type="radio" name="q1" value="pitta"> Medium and muscular (Pitta)</label>
+                        <label><input type="radio" name="q1" value="kaph"> Large and solid (Kapha)</label>
+                    </div>
+                    <div class="question">
+                        <p>2. How is your energy level throughout the day?</p>
+                        <label><input type="radio" name="q2" value="vata"> Variable (Vata)</label>
+                        <label><input type="radio" name="q2" value="pitta"> High and consistent (Pitta)</label>
+                        <label><input type="radio" name="q2" value="kaph"> Steady and calm (Kapha)</label>
+                    </div>
+                    <div class="question">
+                        <p>3. How would you describe your digestion?</p>
+                        <label><input type="radio" name="q3" value="vata"> Irregular (Vata)</label>
+                        <label><input type="radio" name="q3" value="pitta"> Efficient and strong (Pitta)</label>
+                        <label><input type="radio" name="q3" value="kaph"> Slow and steady (Kapha)</label>
+                    </div>
+                    <div class="question">
+                        <p>4. How do you usually react to stress?</p>
+                        <label><input type="radio" name="q4" value="vata"> Anxious and restless (Vata)</label>
+                        <label><input type="radio" name="q4" value="pitta"> Angry or frustrated (Pitta)</label>
+                        <label><input type="radio" name="q4" value="kaph"> Calm and patient (Kapha)</label>
+                    </div>
+                    <div class="question">
+                        <p>5. How would you describe your sleep pattern?</p>
+                        <label><input type="radio" name="q5" value="vata"> Light and irregular (Vata)</label>
+                        <label><input type="radio" name="q5" value="pitta"> Deep and sound (Pitta)</label>
+                        <label><input type="radio" name="q5" value="kaph"> Heavy and long (Kapha)</label>
+                    </div>
+                    
+                    <!-- 6th to 10th questions -->
+                    <div class="question">
+                        <p>6. How do you usually feel about your emotions?</p>
+                        <label><input type="radio" name="q6" value="vata"> Easily excited or overwhelmed (Vata)</label>
+                        <label><input type="radio" name="q6" value="pitta"> Intense and passionate (Pitta)</label>
+                        <label><input type="radio" name="q6" value="kaph"> Calm and content (Kapha)</label>
+                    </div>
+                    <div class="question">
+                        <p>7. How often do you experience dryness in your skin or hair?</p>
+                        <label><input type="radio" name="q7" value="vata"> Frequently (Vata)</label>
+                        <label><input type="radio" name="q7" value="pitta"> Occasionally (Pitta)</label>
+                        <label><input type="radio" name="q7" value="kaph"> Rarely (Kapha)</label>
+                    </div>
+                    <div class="question">
+                        <p>8. How do you respond to cold weather?</p>
+                        <label><input type="radio" name="q8" value="vata"> Very sensitive to cold (Vata)</label>
+                        <label><input type="radio" name="q8" value="pitta"> Tolerate it well (Pitta)</label>
+                        <label><input type="radio" name="q8" value="kaph"> Prefer cold and damp conditions (Kapha)</label>
+                    </div>
+                    <div class="question">
+                        <p>9. What is your preferred activity level?</p>
+                        <label><input type="radio" name="q9" value="vata"> Low, but like to move around (Vata)</label>
+                        <label><input type="radio" name="q9" value="pitta"> High and demanding (Pitta)</label>
+                        <label><input type="radio" name="q9" value="kaph"> Low, enjoy slow walks (Kapha)</label>
+                    </div>
+                    <div class="question">
+                        <p>10. How would you describe your mental clarity?</p>
+                        <label><input type="radio" name="q10" value="vata"> Scattered, forgetful (Vata)</label>
+                        <label><input type="radio" name="q10" value="pitta"> Sharp, focused (Pitta)</label>
+                        <label><input type="radio" name="q10" value="kaph"> Clear and calm (Kapha)</label>
+                    </div>
+
+                    <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+                </form>
+                
+                <!-- Result display -->
+                <div id="result" class="result"></div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Information Button -->
+    <div class="more-info">
+        <p>Want to know more about your body type?</p>
+        <button onclick="window.location.href='doshas.html'">Click here</button>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            const form = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+            let scores = { kaph: 0, pitta: 0, vata: 0 };
+            let unanswered = false;
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = form[`q${i}`];
+                if (answer) {
+                    let answered = false;
+                    for (let option of answer) {
+                        if (option.checked) {
+                            scores[option.value]++;
+                            answered = true;
+                        }
+                    }
+                    if (!answered) {
+                        unanswered = true;
+                    }
+                }
+            }
+
+            if (unanswered) {
+                resultDiv.innerHTML = '<span class="error-message">Please select an option for each question.</span>';
+            } else {
+                const predominantType = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+                resultDiv.innerHTML = `Your predominant body type is: <strong>${predominantType.toUpperCase()}</strong>`;
+            }
+        }
+        
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading navbar:', error));
+
+    </script>
+</body>
+</html>

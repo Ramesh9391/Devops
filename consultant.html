@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda Wellness - Doctor Consultant</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' rel='stylesheet' />
+    <style>
+        body {
+            background-image: url('https://www.chakrapaniayurveda.com/wp-content/uploads/2022/02/bg1-620x500.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .doctor-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            background-color: white;
+        }
+        .doctor-card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .doctor-image {
+            max-width: 80%;
+            border-radius: 8px;
+        }
+        .book-appointment-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .expert p {
+            color: chocolate;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .time-slot-btn {
+            margin: 5px;
+        }
+        .phone-number{
+            margin: 8px;
+            color: green;
+        }
+        #appointmentDetails{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="container book-appointment-container">
+        <div class="expert">
+            <h2>Consult with Dr. Pankaj Tripathi</h2>
+            <p>Expert in Ayurveda with 12 years of experience</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#appointmentModal">Book Appointment</button>
+        </div>
+        <div>
+            <img src="https://gaurayurveda.com/wp-content/uploads/2022/06/Rajesh-removebg.webp" alt="Dr. Pankaj Tripathi" class="doctor-image" style="width: 250px;">
+        </div>
+    </div>
+
+    <!-- Modal for Date Selection -->
+    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="appointmentModalLabel">Select Appointment Date</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Time Slot Selection -->
+    <div class="modal fade" id="timeSlotModal" tabindex="-1" aria-labelledby="timeSlotModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="timeSlotModalLabel">Select Time Slot</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body d-flex flex-wrap" id="time-slots"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Appointment Confirmation Form -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Enter Your Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Confirm Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appointment Details Display -->
+    <div id="appointmentDetails" class="alert alert-success mt-3" style="display: none;">
+        <h5>Appointment Confirmed!</h5>
+        <p>Date: <span id="confirmedDate"></span></p>
+        <p>Time: <span id="confirmedTimeSlot"></span></p>
+    </div>
+
+    <!-- Cards for Other Ayurvedic Doctors -->
+    <div class="container mt-5">
+        <h2>Other Ayurvedic Doctors</h2>
+        <div class="row">
+            <!-- Doctor Cards with phone numbers -->
+            <div class="col-md-4">
+                <div class="doctor-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG2Ly3hDsMRoWohkbCOEAB8IuPvZZZXLdUhNJfN42OAB6hhKDeXpSJys-myO3-3SlDx7w&usqp=CAU" alt="Doctor 1">
+                    <h4>Dr. Seema Singh</h4>
+                    <p>Specialist in Vata Dosha</p>
+                    <button class="btn btn-success consult-btn" data-phone="123-456-7890">Consult Now</button>
+                    <p class="phone-number"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjGzaOE0lBoCaQ6SichCPyHuQ88OKtdqB-1w&s" alt="Doctor 2">
+                    <h4>Dr. Ramesh Kumar</h4>
+                    <p>Expert in Pitta Dosha</p>
+                    <button class="btn btn-success consult-btn" data-phone="234-567-8901">Consult Now</button>
+                    <p class="phone-number"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card">
+                    <img src="https://drvaidyas.com/cdn/shop/files/Dr-surya_540x540.jpg?v=1705043773" alt="Doctor 3">
+                    <h4>Dr. Neha Patel</h4>
+                    <p>Focuses on Kaph Dosha</p>
+                    <button class="btn btn-success consult-btn" data-phone="345-678-9012">Consult Now</button>
+                    <p class="phone-number"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card">
+                    <img src="https://ayurvaid.com/wp-content/uploads/2023/07/Shrinivasa-Pandey.png" alt="Doctor 4">
+                    <h4>Dr. Aarav Mehta</h4>
+                    <p>Specialist in Mental Wellness</p>
+                    <button class="btn btn-success consult-btn" data-phone="456-789-0123">Consult Now</button>
+                    <p class="phone-number"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card">
+                    <img src="https://images1-fabric.practo.com/doctor/1049751/dr-achattil-asha-640c6e6d2445a.png" alt="Doctor 5">
+                    <h4>Dr. Priya Gupta</h4>
+                    <p>Ayurveda Nutritionist</p>
+                    <button class="btn btn-success consult-btn" data-phone="567-890-1234">Consult Now</button>
+                    <p class="phone-number"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doctor-card">
+                    <img src="https://ayurvedapure.com/assets/images/team/Dr%20Rajesh%20Tayal.jpeg" alt="Doctor 6">
+                    <h4>Dr. Suraj Yadav</h4>
+                    <p>Expert in Skin & Hair Care</p>
+                    <button class="btn btn-success consult-btn" data-phone="567-890-1234">Consult Now</button>
+                    <p class="phone-number"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        // Get the current date and time to disable past slots
+        const now = moment();
+        const currentTime = now.format('YYYY-MM-DD HH:mm:ss');
+        const currentDate = now.format('YYYY-MM-DD');
+        const currentTimeOnly = now.format('HH:mm:ss');
+
+        // Initialize the calendar
+        $('#calendar').fullCalendar({
+            selectable: true,
+            selectHelper: true,
+            events: [],
+            validRange: {
+                start: currentDate // Disable past dates
+            },
+            select: function(startDate, endDate) {
+                const selectedDate = startDate.format('YYYY-MM-DD');
+                if (selectedDate < currentDate) {
+                    // Prevent selection of past dates
+                    return;
+                }
+                $('#appointmentModal').modal('hide');
+                $('#timeSlotModal').modal('show');
+                displayTimeSlots(selectedDate);
+            }
+        });
+
+        // Function to display available time slots
+        function displayTimeSlots(date) {
+            const timeSlots = [];
+            let startTime = moment('11:00 AM', 'hh:mm A');
+            const endTime = moment('4:00 PM', 'hh:mm A');
+            
+            // Loop to create the time slots
+            while (startTime.isBefore(endTime)) {
+                timeSlots.push(startTime.format('hh:mm A') + ' to ' + startTime.add(30, 'minutes').format('hh:mm A'));
+            }
+
+            // Disable past time slots based on current time
+            let html = '';
+            timeSlots.forEach(function(slot) {
+                let slotStartTime = moment(slot.split(' to ')[0], 'hh:mm A');
+                if (date === currentDate && slotStartTime.isBefore(now)) {
+                    // Disable past time slots
+                    html += '<button class="btn btn-secondary time-slot-btn disabled" disabled>' + slot + '</button>';
+                } else {
+                    html += '<button class="btn btn-primary time-slot-btn" data-slot="' + slot + '">' + slot + '</button>';
+                }
+            });
+            $('#time-slots').html(html);
+        }
+
+        // Handle time slot selection
+        $('#time-slots').on('click', '.time-slot-btn', function() {
+            const selectedTimeSlot = $(this).data('slot');
+            $('#timeSlotModal').modal('hide');
+            $('#confirmationModal').modal('show');
+            $('#confirmedDate').text($('#calendar').fullCalendar('getDate').format('MMMM Do YYYY'));
+            $('#confirmedTimeSlot').text(selectedTimeSlot);
+        });
+
+        // Handle form submission
+        $('#appointmentForm').on('submit', function(e) {
+            e.preventDefault();
+            const name = $('#name').val();
+            const phone = $('#phone').val();
+            const email = $('#email').val();
+            if (name && phone && email) {
+                $('#confirmationModal').modal('hide');
+                $('#appointmentDetails').show();
+                $('#appointmentForm')[0].reset();
+            }
+        });
+
+        // Show phone number on consult button click
+        $('.consult-btn').click(function() {
+            const phone = $(this).data('phone');
+            $(this).siblings('.phone-number').text('Contact: ' + phone);
+        });
+    });
+
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading navbar:', error));
+
+</script>
+
+</body>
+</html>

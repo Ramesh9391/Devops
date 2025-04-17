@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda Wellness - Therapies</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://www.chakrapaniayurveda.com/wp-content/uploads/2022/02/bg1-620x500.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .thank-you-message {
+           margin:8px;
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
+        .booked-btn {
+            background-color: green;
+            color: white;
+            pointer-events: none;
+        }
+        .extra{
+            color:chocolate;
+            font-weight: bold;
+            margin:30px;
+        }
+        h2{ 
+            margin:20px;
+            color:darkgreen;
+            font-weight: bold;
+            text-align: center;
+        }
+        .info{
+            color:black;
+            margin:30px;
+        }
+        img{
+        height:200px;
+         }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <section class="container mt-5">
+        <h2>Our Therapies at your doorstep...</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card therapy-card" id="panchakarmaCard">
+                    <img src="https://www.panchakarmakerala.com/images/rejuvenation-therapy.jpg" class="card-img-top" alt="Panchakarma">
+                    <div class="card-body">
+                        <h5 class="card-title">Panchakarma</h5>
+                        <p class="card-text">Detoxify and cleanse your body to restore balance.</p>
+                        <button class="btn btn-primary book-btn" data-toggle="modal" data-target="#registrationModal" data-therapy="panchakarmaCard">Book Now</button>
+                        <div class="thank-you-message" id="panchakarmaMessage">
+                            <p>Thank you for booking Panchakarma! We will reach out to you at your preferred Date and Time: <span class="displayPreferredTimeDate"></span></p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card therapy-card" id="shirodharaCard">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnUQSDuVe9Pi1n2yS2Y0IhtREgoB2wXOTiO31sq-tS5cdTXbdAXxoWtwUStTr1Hx_2v54&usqp=CAU" class="card-img-top" alt="Shirodhara">
+                    <div class="card-body">
+                        <h5 class="card-title">Shirodhara</h5>
+                        <p class="card-text">Activates the regulation of the pituitary gland.</p>
+                        <button class="btn btn-primary book-btn" data-toggle="modal" data-target="#registrationModal" data-therapy="shirodharaCard">Book Now</button>
+                        <div class="thank-you-message" id="shirodharaMessage">
+                            <p>Thank you for booking Shirodhara! We will reach out to you at your preferred Date and Time: <span class="displayPreferredTimeDate"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card therapy-card" id="nasyamCard">
+                    <img src="https://www.elephantpassresort.com/wp-content/uploads/2021/03/Nasya-Panchkarma-treatment_in_Kerala_600x400.jpg" class="card-img-top" alt="Nasyam">
+                    <div class="card-body">
+                        <h5 class="card-title">Nasyam</h5>
+                        <p class="card-text">Removes toxins from all the channels of the body.</p>
+                        <button class="btn btn-primary book-btn" data-toggle="modal" data-target="#registrationModal" data-therapy="nasyamCard">Book Now</button>
+                        <div class="thank-you-message" id="nasyamMessage">
+                            <p>Thank you for booking Nasyam! We will reach out to you at your preferred Date and Time: <span class="displayPreferredTimeDate"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registrationModalLabel">Register to Book Therapy</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" class="form-control" id="age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select class="form-control" id="gender" required>
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" class="form-control" id="location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" class="form-control" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredTime">Preferred Time</label>
+                            <input type="time" class="form-control" id="preferredTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Date</label>
+                            <input type="date" class="form-control" id="preferredDate" required min="">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<h2>Our Healing Therapies:</h2>
+<div class="info">
+    
+<p >At our Ayurvedic center, we offer a variety of therapeutic treatments designed to promote holistic well-being. Our therapies are rooted in the ancient principles of Ayurveda, focusing on the balance of your body, mind, and spirit. We begin each session with a personalized consultation to understand your unique dosha and health needs. Based on this assessment, our skilled practitioners recommend a series of treatments, including detoxification, stress relief, rejuvenation, and emotional balance. These therapies include<b> Abhyanga (Ayurvedic oil massage), Shirodhara (oil pouring on the forehead), Panchakarma (detoxification and rejuvenation), Nasya (nasal therapy), and Swedana (herbal steam therapy),</b> each customized to suit your needs.
+
+Our therapies offer a wide range of benefits, such as eliminating toxins from the body, reducing stress, improving mental clarity, and restoring emotional balance. Regular sessions help detoxify the body, calm the mind, and enhance physical vitality. Not only do they improve your overall health, but they also promote a sense of deep relaxation and rejuvenation, contributing to long-term well-being. Ayurveda's holistic approach ensures that every treatment is tailored to restore harmony to your entire system, offering you peace, vitality, and a renewed sense of balance.</p>
+
+<p>When you experience our Ayurvedic therapies, you embark on a healing journey that supports both physical and mental transformation. Our treatments are designed to help you achieve wellness and maintain balance in your daily life. Our clients have reported experiencing increased energy, better sleep, reduced anxiety, and a stronger connection with their inner selves.</p>
+</div>
+<p class="extra">If you’re ready to experience the power of Ayurveda and its healing properties, we invite you to schedule your therapy session with us. Start your journey towards a healthier, more balanced life today by booking a therapy session, and let us guide you toward your path to well-being.</p>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            let selectedTherapy = "";
+
+            // Set today's date as the minimum date for the preferred date input
+            const today = new Date().toISOString().split('T')[0];
+            $("#preferredDate").attr("min", today);
+
+            // Store therapy type on button click
+            $(".book-btn").on("click", function() {
+                selectedTherapy = $(this).data("therapy");
+            });
+
+            // Handle form submission
+            $("#registrationForm").on("submit", function(e) {
+                e.preventDefault();
+
+                // Get preferred time and date
+                const preferredTime = $("#preferredTime").val();
+                const preferredDate = $("#preferredDate").val();
+
+                // Display thank-you message and preferred time/date
+                $("#" + selectedTherapy + " .thank-you-message").show();
+                $("#" + selectedTherapy + " .thank-you-message .displayPreferredTimeDate").text(`${preferredDate} at ${preferredTime}`);
+
+                // Update button to show "Booked" status
+                $("#" + selectedTherapy + " .book-btn").text("Booked").addClass("booked-btn");
+
+                // Hide modal and reset form
+                $('#registrationModal').modal('hide');
+                $("#registrationForm")[0].reset();
+            });
+        });
+        
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading navbar:', error));
+
+
+    </script>
+</body>
+</html>
